@@ -1,0 +1,351 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com'%}">
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'%}"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css'%}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css'%}">
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css'%}">
+    <link rel="stylesheet" href="{% static 'css/glightbox.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/aos.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>MagDesign &mdash; Free Bootstrap 5 Website Template by Colorlib</title>
+</head>
+<body>
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<nav class="site-nav">
+    <div class="container">
+        <div class="site-navigation">
+            <div class="row">
+                <div class="col-md-6 text-center order-1 order-md-2 mb-3 mb-md-0">
+                    <a  class="logo m-0 text-uppercase">MagDesign</a>
+                </div>
+                <div class="col-md-3 order-3 order-md-1">
+                            <form action="{% url 'search_page' %}&
+                            page=1" class="search-form">
+                            <span class="icon-search2"></span>
+                            <input type="search" name="search" class="form-control" placeholder="Search...">
+
+                        </form>
+
+                </div>
+                <div class="col-md-3 text-end order-2 order-md-3 mb-3 mb-md-0">
+                    <div class="d-flex">
+                        
+                        <ul class="list-unstyled social me-auto">
+                            <li><a href="https://www.twitter.com"><span class="fa-brands fa-twitter"></span></a></li>
+                            <li><a href="https://www.facebook.com"><span class="fa-brands fa-facebook"></span></a></li>
+                            <li><a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span></a></li>
+                        </ul>
+                        <a
+                           class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block"
+                           data-toggle="collapse" data-target="#main-navbar">
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ul class="js-clone-nav d-none d-lg-inline-none text-start site-menu float-end">
+                <li class="active"><a href="">Home</a></li>
+                {% for category in all_categories %}
+                    <li><a href="{% url 'categories_page' %}?cat={{category}}&page=1">{{category}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="section pt-5 pb-0">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-7 text-center">
+                <h2 class="heading">Trending</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="posts-slide-wrap">
+                    <div class="posts-slide" id="posts-slide">
+                        {% for article in article_four%}
+                        <div class="item" >
+                            <div class="post-entry d-lg-flex">
+                                <div class="me-lg-5 thumbnail mb-4 mb-lg-0">
+                                    {% for category in all_categories %}
+                                    <a href="{% url 'detail' article.id %}&cat={{article.category}}">
+                                        <a href="{% url 'detail' article.id %}">
+                                        {% endfor %}
+                                        <img src="{{article.image.url}}" alt="Image" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="content align-self-center">
+                                    <div class="post-meta mb-3">
+                                        <a href="{% url 'categories_page' %}" class="category">{{article.category}}</a>
+                                        &mdash;
+                                        <span class="date">July 2, 2020</span>
+                                    </div>
+                                    <h2 class="heading"><a href="{% url 'detail' article.id %}">{{article.title}}</a></h2>
+                                    <p>{{article.description}}</p>
+                                    <a href="{% url 'detail' article.id %}?cat={{article.category}}" class="post-author d-flex align-items-center">
+                                        <div class="author-pic">
+                                            <img src="{{article.author_image.url}}" alt="Image">
+                                        </div>
+                                        <div class="text">
+                                            <strong>{{article.author_full_name}}</strong>
+                                            <span>{{article.author_position}}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row g-5">
+            {% for article in article_six %}
+            <div class="col-lg-4">
+                <div class="post-entry d-block small-post-entry-v">
+                    <div class="thumbnail">
+                        <a href="{% url 'detail' article.id %}">
+                            <img src="{{article.image.url}}" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="post-meta mb-1">
+                            <a href="{% url 'categories_page' %}?cat={{article.category}}" class="category">{{article.category}}</a>
+                            &mdash;
+                            <span class="date">July 2, 2020</span>
+                        </div>
+                        <h2 class="heading mb-3"><a href="{% url 'detail' article.id %}">{{article.title}}</a></h2>
+                        <p>{{article.description}}</p>
+                        <a href="{% url 'detail' article.id %}" class="post-author d-flex align-items-center">
+                            <div class="author-pic">
+                                <img src="{{article.author_image.url}}" alt="Image">
+                            </div>
+                            <div class="text">
+                                <strong>{{article.author_fullname}}</strong>
+                                <span>{{article.author_position}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-7 text-center">
+                <h2 class="heading">Most Popular Posts</h2>
+            </div>
+        </div>
+    </div>
+    <div class="most-popular-slider-wrap px-3 px-md-0">
+        <div id="most-popular-nav">
+            <span class="prev" data-controls="prev">Prev</span>
+            <span class="next" data-controls="next">Next</span>
+        </div>
+        <div class="most-popular-slider" id="most-popular-center">
+            {% for article in article_six %}
+            <div class="item">
+                <div class="post-entry d-block small-post-entry-v">
+                    <div class="thumbnail">
+                        <a href="{% url 'detail' article.id %}">
+                            <img src="{{article.image.url}}" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="post-meta mb-1">
+                            <a href="{% url 'categories_page' %}?cat={{article.category}}" class="category">{{article.category}}</a>
+                            &mdash;
+                            <span class="date">July 2, 2020</span>
+                        </div>
+                        <h2 class="heading mb-3"><a href="{% url 'detail' article.id %}">{{article.title}}</a></h2>
+                        <p>{{article.desription}}</p>
+                        <a href="{% url 'detail' article.id %}" class="post-author d-flex align-items-center">
+                            <div class="author-pic">
+                                <img src="{{article.author_image.url}}" alt="Image">
+                            </div>
+                            <div class="text">
+                                <strong>{{article.author_fullname}}</strong>
+                                <span>{{article.position}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="h4 fw-bold">Game</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    {% for article in article_game_three %}
+                    <div class="col-lg-12">
+                        <div class="post-entry d-md-flex xsmall-horizontal mb-5">
+                            <div class="me-md-3 thumbnail mb-3 mb-md-0">
+                                <a href="{% url 'detail' article.id %}">
+                                    <img src="{{article.image.url}}" alt="Image" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <div class="post-meta mb-1">
+                                    <a href="{% url 'categories_page' %}?cat={{article.category}}" class="category">{{article.catigory}}</a>
+                                    &mdash;
+                                    <span class="date">July 2, 2020</span>
+                                </div>
+                                <h2 class="heading"><a href="{% url 'detail' article.id %}">{{article.title}}</a></h2>
+                                <a href="{% url 'detail' article.id %}" class="post-author d-flex align-items-center">
+                                    <div class="author-pic">
+                                        <img src="{{article.author_image.url}}" alt="Image">
+                                    </div>
+                                    <div class="text">
+                                        <strong>{{article.author_full_name}}</strong>
+                                        <span>{{article.author_position}}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="h4 fw-bold">Business</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    {% for article in article_human_three %}
+                    <div class="col-lg-12">
+                        <div class="post-entry d-md-flex xsmall-horizontal mb-5">
+                            <div class="me-md-3 thumbnail mb-3 mb-md-0">
+                                <a href="{% url 'detail' article.id %}">
+                                    <img src="{{article.image.url}}" alt="Image" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <div class="post-meta mb-1">
+                                    <a href="{% url 'categories_page' %}?cat={{article.category}}" class="category">{{article.catigory}}</a>
+                                    &mdash;
+                                    <span class="date">July 2, 2020</span>
+                                </div>
+                                <h2 class="heading"><a href="{% url 'detail' article.id %}">{{article.title}}</a></h2>
+                                <a href="{% url 'detail' article.id %}" class="post-author d-flex align-items-center">
+                                    <div class="author-pic">
+                                        <img src="{{article.author_image.url}}" alt="Image">
+                                    </div>
+                                    <div class="text">
+                                        <strong>{{article.author_full_name}}</strong>
+                                        <span>{{article.author_position}}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 bg-light mx-md-3 sec-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h4 fw-bold">Subscribe to newsletter</h2>
+            </div>
+        </div>
+        <form method='post'https="preview.colorlib.com=" theme="" magdesign="" action="" class="row" enctype="multipart/form-data ">
+        <div class="col-md-8">
+            <div class="mb-3 mb-md-0">
+                {%csrf_token%}
+                {{form.mail}}
+
+
+            </div>
+        </div>
+        <div class="col-md-4 d-grid">
+            <input type="submit" class="btn btn-primary" value="Subscribe">
+        </div>
+        </form>
+    </div>
+</div>
+<div class="site-footer">
+    <div class="container">
+        <div class="row justify-content-center copyright">
+            <div class="col-lg-7 text-center">
+                <div class="widget">
+                    <ul class="social list-unstyled">
+                        <li><a href="https://www.facebook.com"><span class="fa-brands fa-facebook"></span></a></li>
+                        <li><a href="https://www.twitter.com"><span class="fa-brands fa-twitter"></span></a></li>
+                        <li><a href="https://www.linkedin.com"><span class="fa-brands fa-linkedin"></span></a></li>
+                        <li><a href="https://www.youtube.com/"><span class="fa-brands fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank" rel="nofollow noopener">Colorlib</a>
+                    </p>
+                    <div class="d-block">
+                        <a href="index.html#" class="m-2">Terms &amp; Conditions</a>/
+                        <a href="index.html#" class="m-2">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/tiny-slider.js'%}"></script>
+    <script src="{% static 'js/glightbox.min.js'%}"></script>
+    <script src="{% static 'js/aos.js'%}"></script>
+    <script src="{% static 'js/navbar.js'%}"></script>
+    <script src="{% static 'js/counter.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+
+    <script async src="{% static 'https://www.googletagmanager.com/gtag/js?id=UA-23581568-13'%}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+</body>
+</html>

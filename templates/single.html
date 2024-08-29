@@ -1,0 +1,180 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <title>MagDesign &mdash; Free Bootstrap 5 Website Template by Colorlib</title>
+</head>
+<body>
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<nav class="site-nav">
+    <div class="container">
+        <div class="site-navigation">
+            <div class="row">
+                <div class="col-md-6 text-center order-1 order-md-2 mb-3 mb-md-0">
+                    <a  class="logo m-0 text-uppercase">MagDesign</a>
+                </div>
+                <div class="col-md-3 order-3 order-md-1">
+                    <form action="single.html#" class="search-form">
+                        <span class="icon-search2"></span>
+                        <input type="search" class="form-control" placeholder="Search...">
+                    </form>
+                </div>
+                <div class="col-md-3 text-end order-2 order-md-3 mb-3 mb-md-0">
+                    <div class="d-flex">
+                        <ul class="list-unstyled social me-auto">
+                            <li><a href="https://www.twitter.com"><span class="fa-brands fa-twitter"></span></a></li>
+                            <li><a href="https://www.facebook.com"><span class="fa-brands fa-facebook"></span></a></li>
+                            <li><a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span></a></li>
+                        </ul>
+                        <a href="single.html#"
+                           class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block"
+                           data-toggle="collapse" data-target="#main-navbar">
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ul class="js-clone-nav d-none d-lg-inline-none text-start site-menu float-end">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li class="has-children">
+                    <a href="categories.html">Categories</a>
+                    <ul class="dropdown">
+                        <li><a href="single.html#">Travel</a></li>
+                        <li><a href="single.html#">Food</a></li>
+                        <li><a href="single.html#">Technology</a></li>
+                        <li><a href="single.html#">Business</a></li>
+                        <li class="has-children">
+                            <a href="single.html#">Dropdown</a>
+                            <ul class="dropdown">
+                                <li><a href="single.html#">Sub Menu One</a></li>
+                                <li><a href="single.html#">Sub Menu Two</a></li>
+                                <li><a href="single.html#">Sub Menu Three</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="single.html#">Travel</a></li>
+                <li><a href="single.html#">Food</a></li>
+                <li><a href="single.html#">Technology</a></li>
+                <li><a href="single.html#">Business</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="section post-section pt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center">
+                    <img src="{{article.author_image.url}}" alt="Image" class="author-pic img-fluid rounded-circle mx-auto">
+                </div>
+                <span class="d-block text-center">{{article.author_full_name}}</span>
+                <span class="date d-block text-center small text-uppercase text-black-50 mb-5">July 2, 2020</span>
+                <h2 class="heading text-center">{{article.title}}</h2>
+                <p class="lead mb-4 text-center">{{article.description}}</p>
+                <img src="{{article.image.url}}" alt="Image" class="img-fluid rounded mb-4">
+                <p>{{article.description}}</p>
+                <div class="row mt-5 pt-5 border-top">
+                    <div class="col-12">
+                        <span class="fw-bold text-black small mb-1">Share</span>
+                        <ul class="social list-unstyled">
+                            <li><a href="https://www.facebook.com"><span class="fa-brands fa-facebook"></span></a></li>
+                            <li><a href="https://www.twitter.com"><span class="fa-brands fa-twitter"></span></a></li>
+                            <li><a href="https://www.linkedin.com"><span class="fa-brands fa-linkedin"></span></a></li>
+                            <li><a href="https://www.pinterest.com/"><span class="fa-brands fa-pinterest"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="heading">{{cat}}</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for article in article_three %}
+                <div class="col-lg-12">
+                    <div class="post-entry d-md-flex small-horizontal mb-5">
+                        <div class="me-md-5 thumbnail mb-3 mb-md-0">
+                            <img src="{{article.image.url}}" alt="Image" class="img-fluid">
+                        </div>
+                        <div class="content">
+                            <div class="post-meta mb-3">
+                                <a href="single.html#" class="category">{{article.category}}</a>
+                                <span class="date">July 2, 2020</span>
+                            </div>
+                            <h2 class="heading"><a href="single.html">{{article.title}</a></h2>
+                            <p>{{article.description}}</p>
+                            <a href="single.html#" class="post-author d-flex align-items-center">
+                                <div class="author-pic">
+                                    <img src="{{article.author_image.url}}" alt="Image">
+                                </div>
+                                <div class="text">
+                                    <strong>{{article.author_fullname}}</strong>
+                                    <span>{{article.author_position}}</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/glightbox.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+</body>
+</html>
